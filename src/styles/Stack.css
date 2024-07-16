@@ -1,0 +1,83 @@
+.stack-section {
+  margin: 0 15px 100px;
+}
+
+.stack-section h1 {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 25px;
+  text-align: center;
+}
+
+.stack-container {
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.stack-card {
+  background-color: #22212A;
+  border-radius: 30px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 35px 30px 30px;
+}
+
+.stack-card svg {
+  max-height: 85px;
+  width: auto;
+}
+
+.stack-card h2 {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 16px;
+  margin-top: 25px;
+}
+
+@media (min-width: 768px) {
+  .stack-section {
+    margin: 0 10% 85px;
+  }
+
+  .stack-card {
+    width: 21.5%;
+  }
+}
+
+@media (min-width: 1150px) {
+  .stack-section {
+    margin: 0 10% 125px;
+  }
+
+  .stack-section h1 {
+    font-size: 30px;
+  }
+
+  .stack-card {
+    width: 17%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .stack-card {
+    width: 180px;
+  }
+
+  .square svg {
+    min-height: 100px;
+    width: auto;
+  }
+}
+
+@media (min-width: 1575px) {
+  .stack-section {
+    margin: 0 12.5% 125px;
+  }
+}

@@ -1,0 +1,16 @@
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.social-media a {
+  display: flex;
+  align-items: center;
+}
+
+.social-media a svg {
+  width: auto;
+  height: 35px;
+}

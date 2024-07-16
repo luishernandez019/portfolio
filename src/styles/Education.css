@@ -1,0 +1,57 @@
+.education-section {
+  margin: 0 45px 100px;
+}
+
+.education-section h1 {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 25px;
+  text-align: center;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.education-container img {
+  border-radius: 50%;
+}
+
+.college-info {
+  font-family: "Poppins";
+  text-align: center;
+}
+
+.college-info h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--header-text-color);
+}
+
+.college-info h3 {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 5px 0;
+}
+
+.college-info p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #C3C3C3;
+}
+
+@media (min-width: 768px) {
+  .education-container {
+    flex-direction: row;
+    gap: 60px;
+  }
+
+  .college-info {
+    text-align: left;
+  }
+}

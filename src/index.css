@@ -1,0 +1,73 @@
+:root {
+  --main-bg-color: #181720;
+  --nav-bg-color: #1B1A2A;
+  --header-text-color: #B8A6FF;
+  --description-text-color: #CEC1FF;
+  --button-bg-color: #583EBC;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  background-color: var(--main-bg-color);
+  color: white;
+  font-family: "Poppins";
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-Regular.woff2") format("woff2"),
+       url("./assets/fonts/Poppins/Poppins-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-Medium.woff2") format("woff2"),
+       url("./assets/fonts/Poppins/Poppins-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-SemiBold.woff2") format("woff2"),
+       url("./assets/fonts/Poppins/Poppins-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-Bold.woff2") format("woff2"),
+       url("./assets/fonts/Poppins/Poppins-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-ExtraBold.woff2") format("woff2"),
+       url("./assets/fonts/Poppins/Poppins-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("./assets/fonts/Quicksand/Quicksand-Medium.woff2") format("woff2"),
+       url("./assets/fonts/Quicksand/Quicksand-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
