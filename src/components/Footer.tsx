@@ -15,7 +15,7 @@ export const Footer = () => {
         <SocialMedia/>
         <p className="copyright">
           © {currentYear}
-          <span> Luis Hernández</span>
+          <span> Luis Ordóñez</span>
           . Todos los derechos reservados.
         </p>
       </div>
@@ -29,7 +29,7 @@ export const Footer = () => {
           </p>
           <p className="copyright">
             © {currentYear}
-            <span> Luis Hernández</span>
+            <span> Luis Ordóñez</span>
             . Todos los derechos reservados.
           </p>
         </div>

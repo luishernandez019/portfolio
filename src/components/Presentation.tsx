@@ -8,7 +8,7 @@ export const Presentation = () => {
 
       <article>
         <header className="profile-header">
-          <h1>Luis Hernández</h1>
+          <h1>Luis Ordóñez</h1>
           <h2>Desarrollador Web</h2>
         </header>
 
@@ -26,7 +26,7 @@ export const Presentation = () => {
       </article>
 
       <aside className="profile-aside">
-        <img src={ProfileDesktop} width={467} height={530} alt="Foto de Luis Hernández"/>
+        <img src={ProfileDesktop} width={467} height={530} alt="Foto de Luis Ordóñez"/>
         <SocialMedia/>
       </aside>
 

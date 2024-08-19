@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SocialMedia } from "./SocialMedia";
 import Menu from "../assets/icons/menu.svg";
 import Close from "../assets/icons/close.svg";
@@ -6,12 +6,18 @@ import "../styles/Navbar.css";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showInicio, setShowInicio] = useState(false);
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleScroll = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleInicioScroll = () => {
+    if (window.scrollY >= 300) setShowInicio(true);
+    else setShowInicio(false);
+  };
+
+  const handleSectionsScroll = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
     const element = document.getElementById(id);
 
@@ -26,21 +32,31 @@ export const Navbar = () => {
     setMenuOpen(false);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleInicioScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleInicioScroll);
+    }
+  })
+
   return (
     <>
       <nav>
         <ul>
+          {showInicio &&
+            <li>
+              <a href="#start" onClick={(e) => handleSectionsScroll(e, "start")}>Inicio</a>
+            </li>
+          }
           <li>
-            <a href="#start" onClick={(e) => handleScroll(e, "start")}>Inicio</a>
+            <a href="#stack" onClick={(e) => handleSectionsScroll(e, "stack")}>Stack</a>
           </li>
           <li>
-            <a href="#stack" onClick={(e) => handleScroll(e, "stack")}>Stack</a>
+            <a href="#experiencia" onClick={(e) => handleSectionsScroll(e, "experience")}>Experiencia</a>
           </li>
           <li>
-            <a href="#experiencia" onClick={(e) => handleScroll(e, "experience")}>Experiencia</a>
-          </li>
-          <li>
-            <a href="#proyectos" onClick={(e) => handleScroll(e, "projects")}>Proyectos</a>
+            <a href="#proyectos" onClick={(e) => handleSectionsScroll(e, "projects")}>Proyectos</a>
           </li>
           <li>
             <a href="mailto:luishdz.dev@gmail.com">Contacto</a>
@@ -56,17 +72,19 @@ export const Navbar = () => {
             <Close/>
           </button>
           <ul>
+            {showInicio &&
+              <li>
+                <a href="#start" onClick={(e) => handleSectionsScroll(e, "start")}>Inicio</a>
+              </li>
+            }
             <li>
-              <a href="#start" onClick={(e) => handleScroll(e, "start")}>Inicio</a>
+              <a href="#stack" onClick={(e) => handleSectionsScroll(e, "stack")}>Stack</a>
             </li>
             <li>
-              <a href="#stack" onClick={(e) => handleScroll(e, "stack")}>Stack</a>
+              <a href="#experiencia" onClick={(e) => handleSectionsScroll(e, "experience")}>Experiencia</a>
             </li>
             <li>
-              <a href="#experiencia" onClick={(e) => handleScroll(e, "experience")}>Experiencia</a>
-            </li>
-            <li>
-              <a href="#proyectos" onClick={(e) => handleScroll(e, "projects")}>Proyectos</a>
+              <a href="#proyectos" onClick={(e) => handleSectionsScroll(e, "projects")}>Proyectos</a>
             </li>
             <li>
               <a href="mailto:luishdz.dev@gmail.com">Contacto</a>

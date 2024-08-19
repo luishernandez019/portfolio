@@ -1,4 +1,4 @@
-# Portafolio Luis Hernández
+# Portafolio Luis Ordóñez
 [![Project Version][version-image]][version-url]
 [![Frontend][Frontend-image]][Frontend-url]
 
@@ -12,7 +12,10 @@ yarn dev
 ## Release History
 
 * 1.0.0
-    * Primera versión
+    * Primera versión.
+    
+* 1.0.1
+    * Actualizar nombre, fechas de experiencias laborales y sección Inicio al scrollear.
 
 ---
 
