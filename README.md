@@ -12,7 +12,7 @@ yarn dev
 ## Release History
 
 * 1.0.1
-    * Actualizar nombre, fechas de experiencias laborales y sección Inicio al scrollear.
+    * Actualización de nombre, fechas de experiencias laborales y sección Inicio al scrollear.
 
 * 1.0.0
     * Primera versión.

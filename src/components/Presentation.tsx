@@ -20,7 +20,7 @@ export const Presentation = () => {
         </p>
 
         <div className="profile-buttons">
-          <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDOÑEZ.pdf" target="_blank">Ver CV</a>
+          <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDONEZ.pdf" target="_blank">Ver CV</a>
           <a href="mailto:luishdz.dev@gmail.com" target="_blank">Contáctame</a>
         </div>
       </article>
