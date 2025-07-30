@@ -15,7 +15,7 @@ export const Footer = () => {
         <SocialMedia/>
         <p className="copyright">
           © {currentYear}
-          <span> Luis Ordóñez</span>
+          <span> Luis Hernández</span>
           . Todos los derechos reservados.
         </p>
       </div>
