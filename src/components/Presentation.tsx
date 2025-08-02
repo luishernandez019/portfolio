@@ -26,7 +26,13 @@ export const Presentation = () => {
       </article>
 
       <aside className="profile-aside">
-        <img src={ProfileDesktop} width={467} height={530} alt="Foto de Luis Hernández"/>
+        <img
+          src={ProfileDesktop}
+          width={467}
+          height={518}
+          loading="eager"
+          alt="Foto de Luis Hernández"
+        />
         <SocialMedia/>
       </aside>
 
