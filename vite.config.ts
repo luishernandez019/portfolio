@@ -8,7 +8,27 @@ export default defineConfig({
     svgr({
       svgrOptions: { exportType: "default", ref: true, svgo: false, titleProp: true },
       include: "**/*.svg",   
-    }),
+    })
   ],
+
+  build: {
+    target: "esnext",
+    minify: "esbuild",
+    sourcemap: false,
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"]
+        }
+      },
+      treeshake: {
+        moduleSideEffects: false,
+        propertyReadSideEffects: false,
+        tryCatchDeoptimization: false
+      }
+    }
+  },
+
   assetsInclude: ['**/*.woff', '**/*.woff2'],
 });

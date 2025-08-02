@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Navbar } from "./components/Navbar";
 import { Presentation } from "./components/Presentation";
 import { Services } from "./components/Services";
@@ -16,10 +16,12 @@ function App() {
       <main>
         <Presentation/>
         <Services/>
-        <Stack/>
-        <Experience/>
-        <Education/>
-        <Projects/>
+        <Suspense fallback={<div style={{ height: 300 }}>Cargando...</div>}>
+          <Stack/>
+          <Experience/>
+          <Education/>
+          <Projects/>
+        </Suspense>
       </main>
       <Footer/>
     </React.Fragment>
