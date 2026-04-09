@@ -1,38 +1,38 @@
 export const EXPERIENCE = [
   {
     id: 1,
-    position: "Ingeniero de Software",
-    company: "DevBox",
-    date: "Septiembre 2024 - Noviembre 2024",
+    position: "Frontend Engineer",
+    company: "Ravan Tech",
+    date: "Agosto 2025 - Actualidad",
     description: `
-      Realicé la maquetación de los wireframes proporcionados por el equipo de diseño, creando interfaces responsivas y optimizadas con excelente atención al detalle. En el lado del backend, desarrollé endpoints para diferentes módulos requeridos por la aplicación web asegurando una integración fluida con el frontend y un buen rendimiento.
+      Desarrollé interfaces web en React/TypeScript traduciendo mockups de Figma a componentes pixel-perfect, logrando un score de rendimiento del 100% en Lighthouse en todas las vistas entregadas. Integré el frontend con APIs REST gestionando estados de carga y error con patrones escalables, asegurando experiencias fluidas y sin bloqueos de UI en flujos críticos de negocio. Optimicé el rendimiento visual implementando compresión de imágenes, conversión a formato WebP y lazy loading, reduciendo el peso de assets entre un 40–70% por vista.
     `
   },
   {
     id: 2,
-    position: "Programador",
-    company: "Induxsoft",
-    date: "Febrero 2024 - Mayo 2024",
+    position: "Software Engineer",
+    company: "DevBox",
+    date: "Septiembre 2024 - Noviembre 2024",
     description: `
-      Di mantenimiento y desarrollé nuevos módulos para aplicaciones ERP, incluyendo puntos de venta y back office, mejorando la estabilidad y funcionalidad del sistema. Automaticé tareas operativas, corregí errores reportados y documenté técnicamente funciones existentes en las aplicaciones, facilitando futuras actualizaciones y soporte técnico.
+      Maquetación de wireframes del equipo de diseño, creando interfaces responsivas y optimizadas con alta atención al detalle visual. Desarrollo de endpoints backend para distintos módulos de la aplicación web, asegurando integración fluida con el frontend y buen rendimiento en producción.
     `
   },
   {
     id: 3,
-    position: "Desarrollador Frontend",
-    company: "Flink",
-    date: "Enero 2022 - Julio 2023",
+    position: "Software Developer",
+    company: "Induxsoft",
+    date: "Febrero 2024 - Mayo 2024",
     description: `
-      Implementé mejoras en las landing pages de <a href='https://miflink.com' target='_blank'>Miflink</a> y <a href='https://www.vifaru.com.mx' target='_blank'>Vifaru</a>, llevando a cabo la maquetación de wireframes proporcionados por el equipo de diseño. Optimicé las interfaces para diferentes dispositivos y navegadores. Mejoré el rendimiento de los sitios web. Desarrollé nuevas funcionalidades y solucioné errores críticos, contribuyendo a una experiencia de usuario más rápida y estable.
+      Mantenimiento y desarrollo de nuevos módulos para aplicaciones ERP, incluyendo puntos de venta y back office, mejorando estabilidad y funcionalidad del sistema. Automatización de tareas operativas, corrección de errores reportados y documentación técnica de funciones existentes, facilitando futuras actualizaciones y soporte.
     `
   },
   {
     id: 4,
-    position: "Diseñador UI",
-    company: "Agavesoft (Prácticas)",
-    date: "Agosto 2021 - Diciembre 2021",
+    position: "Frontend Developer",
+    company: "Flink",
+    date: "Enero 2022 - Julio 2023",
     description: `
-      Responsable de hacer el rebranding de la aplicación web de Combiomex diseñando wireframes high fidelity.
+      Implementé mejoras en las landing pages de <a href='https://miflink.com' target='_blank'>Miflink</a> y <a href='https://www.vifaru.com.mx' target='_blank'>Vifaru</a>, llevando a cabo la maquetación pixel-perfect de wireframes proporcionados por el equipo de diseño. Optimicé el rendimiento de Miflink y Vifaru implementando compresión de imágenes, migración a WebP y lazy loading, reduciendo el peso de assets entre un 40–70% y mejorando los tiempos de carga para miles de usuarios activos. Desarrollé nuevas funcionalidades y solucioné errores críticos, contribuyendo a una experiencia de usuario más rápida y estable.
     `
   },
 ];

@@ -9,11 +9,11 @@ export const Presentation = () => {
       <article>
         <header className="profile-header">
           <h1>Luis Hernández</h1>
-          <h2>Desarrollador Web</h2>
+          <h2>Frontend Engineer</h2>
         </header>
 
         <p className="profile-description">
-          +2 años de experiencia.
+          +3 años de experiencia.
           <span> Ingeniero en Desarrollo de Software </span>
           de Chiapas, México. Especializado en el desarrollo de aplicaciones web atractivas y funcionales.
           <span> Let's code!</span>
