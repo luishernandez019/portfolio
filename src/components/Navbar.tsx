@@ -59,7 +59,7 @@ export const Navbar = () => {
             <a href="#proyectos" onClick={(e) => handleSectionsScroll(e, "projects")}>Proyectos</a>
           </li>
           <li>
-            <a href="mailto:luishdz.dev@gmail.com">Contacto</a>
+            <a href="#contact" onClick={(e) => handleSectionsScroll(e, "contact")}>Contacto</a>
           </li>
         </ul>
         <button className="menu-btn" aria-label="Abrir menú" onClick={handleToggleMenu}>
@@ -87,7 +87,7 @@ export const Navbar = () => {
               <a href="#proyectos" onClick={(e) => handleSectionsScroll(e, "projects")}>Proyectos</a>
             </li>
             <li>
-              <a href="mailto:luishdz.dev@gmail.com">Contacto</a>
+              <a href="#contact" onClick={(e) => handleSectionsScroll(e, "contact")}>Contacto</a>
             </li>
           </ul>
           <div className="mobile-social-media">
