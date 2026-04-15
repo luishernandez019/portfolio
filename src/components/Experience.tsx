@@ -4,7 +4,7 @@ import "../styles/Experience.css"
 export const Experience = () => {
   return (
     <section className="experience-section" id="experience">
-      <h1>Experiencia laboral</h1>
+      <h2>Experiencia laboral</h2>
 
       <div className="experience-container">
         <ul className="timeline">

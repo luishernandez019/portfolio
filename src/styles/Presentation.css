@@ -74,6 +74,7 @@
 .profile-aside img {
   width: 85%;
   height: auto;
+  aspect-ratio: 467 / 518;
   margin-bottom: 30px;
 }
 
@@ -91,6 +92,7 @@
 
   .profile-aside img {
     width: 72.5%;
+    aspect-ratio: 467 / 518;
   }
 }
 
@@ -144,6 +146,7 @@
   .profile-aside img {
     width: 90%;
     height: auto;
+    aspect-ratio: 467 / 518;
     margin-bottom: 15px;
   }
 }

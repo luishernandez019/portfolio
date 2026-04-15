@@ -3,13 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="author" content="Luis Ángel Hernández Ordóñez" />
-    <meta name="description" content="Luis Hernández, Web Developer Portfolio" />
+    <meta name="description" content="Portfolio de Luis Hernández, Frontend Engineer con +3 años de experiencia especializado en React, TypeScript y desarrollo web moderno." />
     <meta name="robots" content="index,follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://luishernandez.digital" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://luishernandez.digital" />
+    <meta property="og:title" content="Luis Hernández - Frontend Engineer" />
+    <meta property="og:description" content="Portfolio de Luis Hernández, Frontend Engineer con +3 años de experiencia especializado en React, TypeScript y desarrollo web moderno." />
+    <meta property="og:image" content="https://luishernandez.digital/og-preview.webp" />
+    <meta property="og:locale" content="es_MX" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Luis Hernández - Frontend Engineer" />
+    <meta name="twitter:description" content="Portfolio de Luis Hernández, Frontend Engineer con +3 años de experiencia especializado en React, TypeScript y desarrollo web moderno." />
+    <meta name="twitter:image" content="https://luishernandez.digital/og-preview.webp" />
+
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" href="/header_profile.webp" imagesrcset="/header_profile_sm.webp 280w, /header_profile_md.webp 360w, /header_profile.webp 467w" imagesizes="(min-width: 1300px) 24vw, (min-width: 1150px) 27vw, (min-width: 768px) 29vw, (min-width: 600px) 73vw, 85vw" fetchpriority="high" />
+
+    <!-- Preload critical fonts (above-the-fold: Regular 400 + Bold 700) -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Poppins-Regular.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Poppins-Bold.woff2" crossorigin />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-    <title>Luis Hernández - Developer Portfolio</title>
+    <title>Luis Hernández - Frontend Engineer</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Luis Ángel Hernández Ordóñez",
+      "jobTitle": "Frontend Engineer",
+      "url": "https://luishernandez.digital",
+      "email": "luishdz.dev@gmail.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/luishernandez19/",
+        "https://github.com/luishernandez019",
+        "https://www.behance.net/luishernandez019"
+      ]
+    }
+    </script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Saltar al contenido principal</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

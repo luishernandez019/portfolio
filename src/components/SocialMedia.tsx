@@ -6,13 +6,13 @@ import "../styles/SocialMedia.css";
 export const SocialMedia = () => {
   return (
     <div className="social-media">
-      <a href="https://www.linkedin.com/in/luishernandez19/" target="_blank" aria-label="Perfil de LinkedIn de Luis Ordóñez">
+      <a href="https://www.linkedin.com/in/luishernandez19/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de LinkedIn de Luis Hernández">
         <Linkedin/>
       </a>
-      <a href="https://github.com/luishernandez019" target="_blank" aria-label="Perfil de GitHub de Luis Ordóñez">
+      <a href="https://github.com/luishernandez019" target="_blank" rel="noopener noreferrer" aria-label="Perfil de GitHub de Luis Hernández">
         <Github/>
       </a>
-      <a href="https://www.behance.net/luishernandez019" target="_blank" aria-label="Perfil de Behance de Luis Ordóñez">
+      <a href="https://www.behance.net/luishernandez019" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Behance de Luis Hernández">
         <Behance/>
       </a>  
     </div>

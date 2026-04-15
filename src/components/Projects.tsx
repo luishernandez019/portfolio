@@ -6,7 +6,7 @@ import "../styles/Projects.css";
 export const Projects = () => {
   return (
     <section className="projects-section" id="projects">
-      <h1>Proyectos</h1>
+      <h2>Proyectos</h2>
 
       <div className="projects-container">
         {Array.from({ length: Math.ceil(PROJECTS.length / 2) }, (_, i) => (
@@ -23,7 +23,7 @@ export const Projects = () => {
                 />
                 <div className="projects-buttons">
                   {project.demo && (
-                    <a className="demo-button" href={project.demo} target="_blank">
+                    <a className="demo-button" href={project.demo} target="_blank" rel="noopener noreferrer">
                       Demo
                     </a>
                   )}
@@ -31,7 +31,8 @@ export const Projects = () => {
                     <a
                       href={project.github}
                       target="_blank"
-                      aria-label={`Proyecto de GitHub de ${project.title}`}
+                      rel="noopener noreferrer"
+                      aria-label={`Ver código de ${project.title} en GitHub`}
                     >
                       <Github />
                     </a>
@@ -40,7 +41,8 @@ export const Projects = () => {
                     <a
                       href={project.behance}
                       target="_blank"
-                      aria-label={`Proyecto de Behance de ${project.title}`}
+                      rel="noopener noreferrer"
+                      aria-label={`Ver ${project.title} en Behance`}
                     >
                       <Behance />
                     </a>

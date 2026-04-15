@@ -1,5 +1,4 @@
 import { SocialMedia } from "./SocialMedia";
-import ProfileDesktop from "../assets/images/header_profile.webp";
 import "../styles/Presentation.css";
 
 export const Presentation = () => {
@@ -20,17 +19,20 @@ export const Presentation = () => {
         </p>
 
         <div className="profile-buttons">
-          <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDONEZ.pdf" target="_blank">Ver CV</a>
-          <a href="#contact" target="_blank">Contáctame</a>
+          <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDONEZ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver CV de Luis Hernández en PDF">Ver CV</a>
+          <a href="#contact">Contáctame</a>
         </div>
       </article>
 
       <aside className="profile-aside">
         <img
-          src={ProfileDesktop}
+          src="/header_profile.webp"
+          srcSet="/header_profile_sm.webp 280w, /header_profile_md.webp 360w, /header_profile.webp 467w"
+          sizes="(min-width: 1300px) 24vw, (min-width: 1150px) 27vw, (min-width: 768px) 29vw, (min-width: 600px) 73vw, 85vw"
           width={467}
           height={518}
           loading="eager"
+          fetchpriority="high"
           alt="Foto de Luis Hernández"
         />
         <SocialMedia/>

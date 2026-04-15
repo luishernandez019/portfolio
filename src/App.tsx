@@ -1,33 +1,41 @@
-import React, { Suspense } from "react";
+import React, { lazy, Suspense } from "react";
 import { Navbar } from "./components/Navbar";
 import { Presentation } from "./components/Presentation";
 import { Services } from "./components/Services";
-import { Stack } from "./components/Stack";
-import { Experience } from "./components/Experience";
-import { Education } from "./components/Education";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
+import { ErrorBoundary } from "./components/ErrorBoundary";
 import "./index.css";
+
+const Stack = lazy(() => import("./components/Stack").then(m => ({ default: m.Stack })));
+const Experience = lazy(() => import("./components/Experience").then(m => ({ default: m.Experience })));
+const Education = lazy(() => import("./components/Education").then(m => ({ default: m.Education })));
+const Projects = lazy(() => import("./components/Projects").then(m => ({ default: m.Projects })));
+const Contact = lazy(() => import("./components/Contact").then(m => ({ default: m.Contact })));
+const Footer = lazy(() => import("./components/Footer").then(m => ({ default: m.Footer })));
 
 function App() {
   return (
     <React.Fragment>
       <Navbar/>
-      <main>
+      <main id="main">
         <Presentation/>
         <Services/>
-        <Suspense fallback={<div style={{ height: 300 }}>Cargando...</div>}>
-          <Stack/>
-          <Experience/>
-          <Education/>
-          <Projects/>
-          <Contact/>
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={null}>
+            <Stack/>
+            <Experience/>
+            <Education/>
+            <Projects/>
+            <Contact/>
+          </Suspense>
+        </ErrorBoundary>
       </main>
-      <Footer/>
+      <ErrorBoundary>
+        <Suspense fallback={null}>
+          <Footer/>
+        </Suspense>
+      </ErrorBoundary>
     </React.Fragment>
   );
-};
+}
 
 export default App;

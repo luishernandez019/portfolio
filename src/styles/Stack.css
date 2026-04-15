@@ -2,7 +2,7 @@
   margin: 0 15px 100px;
 }
 
-.stack-section h1 {
+.stack-section h2 {
   font-family: "Poppins";
   font-weight: 800;
   font-size: 25px;
@@ -56,8 +56,12 @@
     margin: 0 10% 125px;
   }
 
-  .stack-section h1 {
+  .stack-section h2 {
     font-size: 30px;
+  }
+
+  .stack-card h2 {
+    font-size: 16px;
   }
 
   .stack-card {

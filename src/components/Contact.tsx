@@ -40,7 +40,7 @@ export const Contact = () => {
 
   return (
     <section id="contact" className="contact-section">
-      <h1>Contacto</h1>
+      <h2>Contacto</h2>
       <p className="contact-subtitle">
         Estoy disponible para proyectos freelance, colaboraciones o simplemente para charlar. ¡Escríbeme!
       </p>
@@ -66,6 +66,7 @@ export const Contact = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
+                aria-required="true"
                 disabled={status === "loading"}
               />
             </div>
@@ -79,6 +80,7 @@ export const Contact = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                aria-required="true"
                 disabled={status === "loading"}
               />
             </div>
@@ -92,6 +94,7 @@ export const Contact = () => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
+                aria-required="true"
                 disabled={status === "loading"}
               />
             </div>

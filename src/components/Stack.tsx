@@ -15,7 +15,7 @@ import "../styles/Stack.css";
 export const Stack = () => {
   return (
     <section className="stack-section" id="stack">
-      <h1>Mi stack de desarrollo</h1>
+      <h2>Mi stack de desarrollo</h2>
 
       <div className="stack-container">
         <div className="stack-card">
