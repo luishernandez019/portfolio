@@ -29,8 +29,8 @@ export const Presentation = () => {
           src="/header_profile.webp"
           srcSet="/header_profile_sm.webp 280w, /header_profile_md.webp 360w, /header_profile.webp 467w"
           sizes="(min-width: 1300px) 24vw, (min-width: 1150px) 27vw, (min-width: 768px) 29vw, (min-width: 600px) 73vw, 85vw"
-          width={467}
-          height={518}
+          width={982}
+          height={1080}
           loading="eager"
           fetchPriority="high"
           alt="Foto de Luis Hernández"
