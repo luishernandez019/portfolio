@@ -1,6 +1,6 @@
 import FloreriaValentina from "../assets/projects/floreria-valentina.webp";
 import DulceTentacion from "../assets/projects/dulce-tentacion.webp";
-import Cientifico from "../assets/projects/100tifico.webp";
+import DataDex from "../assets/projects/datadex.webp";
 import BeatBond from "../assets/projects/beatbond.webp";
 
 interface Project {
@@ -24,6 +24,14 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
+    title: "DataDex",
+    image: DataDex,
+    alt: "Imagen de proyecto de DataDex",
+    demo: "https://datadex-api.vercel.app",
+    github: "https://github.com/luishernandez019/datadex",
+  },
+  {
+    id: 3,
     title: "Florería Valentina",
     image: FloreriaValentina,
     alt: "Imagen de proyecto de Florería Valentina",
@@ -31,19 +39,11 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/luishernandez019/floreria-valentina",
   },
   {
-    id: 3,
+    id: 4,
     title: "Dulce Tentación",
     image: DulceTentacion,
     alt: "Imagen de proyecto de Dulce Tentación",
     demo: "https://dulce-tentacion-mx.vercel.app",
     github: "https://github.com/luishernandez019/dulce-tentacion",
-  },
-  {
-    id: 4,
-    title: "100tifi.co",
-    image: Cientifico,
-    alt: "Imagen de proyecto de 100tifi.co",
-    demo: "https://luishernandez019.github.io/100tifi.co/",
-    github: "https://github.com/luishernandez019/100tifi.co",
   }
 ];
