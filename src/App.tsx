@@ -3,6 +3,7 @@ import { Navbar } from "./components/Navbar";
 import { Presentation } from "./components/Presentation";
 import { Services } from "./components/Services";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { StarField } from "./components/StarField";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import "./index.css";
 
@@ -16,6 +17,7 @@ const Footer = lazy(() => import("./components/Footer").then(m => ({ default: m.
 function App() {
   return (
     <React.Fragment>
+      <StarField/>
       <Navbar/>
       <main id="main">
         <Presentation/>

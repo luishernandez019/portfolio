@@ -73,6 +73,11 @@ html {
   font-weight: 400;
 }
 
+main, footer, nav {
+  position: relative;
+  z-index: 1;
+}
+
 @font-face {
   font-family: "Poppins";
   src: url("/fonts/Poppins-Regular.woff2") format("woff2");
