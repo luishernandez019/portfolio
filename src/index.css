@@ -4,11 +4,21 @@
   --header-text-color: #B8A6FF;
   --description-text-color: #CEC1FF;
   --button-bg-color: #583EBC;
+
+  --card-bg-color: #22212A;
+  --card-border: 1px solid rgba(184, 166, 255, 0.1);
+  --card-shadow: 0 4px 24px rgba(88, 62, 188, 0.12);
+  --card-shadow-hover: 0 16px 48px rgba(88, 62, 188, 0.28);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
   padding: 0;
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* Offset for fixed navbar when scrolling to sections */

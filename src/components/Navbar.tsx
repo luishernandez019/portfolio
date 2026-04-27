@@ -2,57 +2,35 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SocialMedia } from "./SocialMedia";
 import Menu from "../assets/icons/menu.svg";
 import Close from "../assets/icons/close.svg";
+import LogoSVG from "../assets/icons/logo.svg";
+const Logo = LogoSVG as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
 import "../styles/Navbar.css";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showInicio, setShowInicio] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const handleInicioScroll = () => {
-    if (window.scrollY >= 300) setShowInicio(true);
-    else setShowInicio(false);
-  };
-
   const handleSectionsScroll = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
-
-    if (id === "start") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     setMenuOpen(false);
   };
 
-  // Add scroll listener only once on mount
-  useEffect(() => {
-    window.addEventListener("scroll", handleInicioScroll);
-    return () => {
-      window.removeEventListener("scroll", handleInicioScroll);
-    };
-  }, []);
-
-  // Focus close button when mobile menu opens
   useEffect(() => {
     if (menuOpen) {
       closeButtonRef.current?.focus();
     }
   }, [menuOpen]);
 
-  // Close mobile menu on Escape key
   useEffect(() => {
     if (!menuOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setMenuOpen(false);
-      }
+      if (e.key === "Escape") setMenuOpen(false);
     };
 
     document.addEventListener("keydown", handleKeyDown);
@@ -62,12 +40,8 @@ export const Navbar = () => {
   return (
     <>
       <nav>
+        <Logo className="nav-logo" aria-hidden="true"/>
         <ul>
-          {showInicio &&
-            <li>
-              <a href="#start" onClick={(e) => handleSectionsScroll(e, "start")}>Inicio</a>
-            </li>
-          }
           <li>
             <a href="#stack" onClick={(e) => handleSectionsScroll(e, "stack")}>Stack</a>
           </li>
@@ -106,11 +80,6 @@ export const Navbar = () => {
             <Close/>
           </button>
           <ul>
-            {showInicio &&
-              <li>
-                <a href="#start" onClick={(e) => handleSectionsScroll(e, "start")}>Inicio</a>
-              </li>
-            }
             <li>
               <a href="#stack" onClick={(e) => handleSectionsScroll(e, "stack")}>Stack</a>
             </li>

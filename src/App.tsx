@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { Navbar } from "./components/Navbar";
 import { Presentation } from "./components/Presentation";
 import { Services } from "./components/Services";
+import { ScrollToTop } from "./components/ScrollToTop";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import "./index.css";
 
@@ -34,6 +35,7 @@ function App() {
           <Footer/>
         </Suspense>
       </ErrorBoundary>
+      <ScrollToTop/>
     </React.Fragment>
   );
 }

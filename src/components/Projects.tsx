@@ -14,13 +14,15 @@ export const Projects = () => {
             {PROJECTS.slice(i * 2, i * 2 + 2).map((project) => (
               <article className="project-card" key={project.id}>
                 <h2>{project.title}</h2>
-                <img
-                  src={project.image}
-                  width={305}
-                  height={200}
-                  alt={project.alt}
-                  loading="lazy"
-                />
+                <div className="project-image-wrapper">
+                  <img
+                    src={project.image}
+                    width={305}
+                    height={200}
+                    alt={project.alt}
+                    loading="lazy"
+                  />
+                </div>
                 <div className="projects-buttons">
                   {project.demo && (
                     <a className="demo-button" href={project.demo} target="_blank" rel="noopener noreferrer">

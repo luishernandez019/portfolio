@@ -1,12 +1,27 @@
 .education-section {
   margin: 0 45px 100px;
+  text-align: center;
 }
 
-.education-section h2 {
+.education-section > h2 {
   font-family: "Poppins";
   font-weight: 800;
   font-size: 25px;
-  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 14px;
+}
+
+.education-section > h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--button-bg-color), var(--header-text-color));
+  border-radius: 2px;
 }
 
 .education-container {
@@ -14,12 +29,22 @@
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  gap: 25px;
-  margin-top: 30px;
+  gap: 28px;
+  margin-top: 40px;
+  background-color: var(--card-bg-color);
+  border: var(--card-border);
+  border-radius: 20px;
+  padding: 36px 32px;
+  box-shadow: var(--card-shadow);
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .education-container img {
   border-radius: 50%;
+  border: 2px solid rgba(184, 166, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(88, 62, 188, 0.2);
 }
 
 .college-info {
@@ -28,30 +53,62 @@
 }
 
 .college-info h2 {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--header-text-color);
+  letter-spacing: -0.01em;
 }
 
 .college-info h3 {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 400;
-  margin: 5px 0;
+  margin: 6px 0;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .college-info p {
   font-size: 12px;
   font-weight: 400;
-  color: #C3C3C3;
+  color: rgba(184, 166, 255, 0.6);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+@media (min-width: 500px) {
+  .education-section {
+    margin-left: 15%;
+    margin-right: 15%;
+  }
 }
 
 @media (min-width: 768px) {
+  .education-section {
+    margin: 0 10% 85px;
+  }
+
   .education-container {
     flex-direction: row;
-    gap: 60px;
+    gap: 48px;
+    max-width: 500px;
+    padding: 40px 48px;
   }
 
   .college-info {
     text-align: left;
+  }
+
+  .college-info h2 {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .education-section {
+    margin-bottom: 125px;
+  }
+
+  .education-section > h2 {
+    font-size: 30px;
   }
 }

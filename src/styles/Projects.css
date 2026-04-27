@@ -1,93 +1,177 @@
 .projects-section {
-  margin: 0 10px 100px;
+  margin: 0 45px 100px;
+  text-align: center;
 }
 
-.projects-section h2 {
+.projects-section > h2 {
   font-family: "Poppins";
   font-weight: 800;
   font-size: 25px;
-  text-align: center;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 14px;
+}
+
+.projects-section > h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--button-bg-color), var(--header-text-color));
+  border-radius: 2px;
 }
 
 .projects-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
+  margin: 40px auto 0;
   gap: 30px;
+  max-width: 700px;
+  width: 100%;
 }
 
 .projects-row {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  width: 100%;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
   text-align: center;
-  gap: 20px;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+  background-color: var(--card-bg-color);
+  border: var(--card-border);
+  border-radius: 20px;
+  padding: 20px 20px 24px;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  box-shadow: var(--card-shadow);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(184, 166, 255, 0.2);
 }
 
 .project-card h2 {
   font-family: "Poppins";
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.01em;
+}
+
+.project-image-wrapper {
+  overflow: hidden;
+  border-radius: 14px;
 }
 
 .project-card img {
   width: 100%;
   aspect-ratio: 13 / 9;
   object-fit: cover;
-  border-radius: 30px;
+  border-radius: 14px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.project-card:hover img {
+  transform: scale(1.04);
 }
 
 .projects-buttons {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
 }
 
 .projects-buttons a svg {
-  height: 40px;
+  height: 38px;
   width: auto;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.projects-buttons a:hover svg {
+  transform: scale(1.12);
+  opacity: 0.8;
 }
 
 .demo-button {
   display: flex;
   align-items: center;
   font-family: "Poppins";
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
   text-decoration: none;
-  background-color: var(--button-bg-color);
+  background: linear-gradient(135deg, var(--button-bg-color), #7B5EE8);
   color: white;
   border-radius: 10px;
-  padding: 5px 20px;
+  padding: 7px 20px;
+  box-shadow: 0 4px 14px rgba(88, 62, 188, 0.35);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .demo-button:hover {
-  background-image: linear-gradient(rgb(0 0 0/10%) 0 0);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(88, 62, 188, 0.5);
+}
+
+@media (min-width: 500px) {
+  .projects-section {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
 }
 
 @media (min-width: 768px) {
+  .projects-section {
+    margin: 0 10% 85px;
+  }
+
   .projects-row {
     flex-direction: row;
   }
 
   .projects-buttons a svg {
-    height: 35px;
+    height: 34px;
     width: auto;
   }
 
   .demo-button {
-    padding: 5px 22.5px;
+    padding: 7px 22px;
   }
 }
 
 @media (min-width: 1150px) {
+  .projects-section {
+    margin: 0 12.5% 125px;
+  }
+
+  .projects-section > h2 {
+    font-size: 30px;
+  }
+
   .projects-row {
-    gap: 65px;
+    gap: 40px;
+  }
+
+  .project-card {
+    padding: 24px 24px 28px;
+  }
+}
+
+@media (min-width: 1300px) {
+  .projects-section {
+    margin: 0 17.5% 125px;
   }
 }

@@ -1,0 +1,15 @@
+<svg width="210" height="38" viewBox="0 0 210 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="38" height="38" rx="10" fill="url(#grad)"/>
+  <g transform="translate(9, 9) scale(0.833)" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M7 8l-4 4l4 4"/>
+    <path d="M17 8l4 4l-4 4"/>
+    <path d="M14 4l-4 16"/>
+  </g>
+  <text x="56" y="25" font-family="Poppins, sans-serif" font-weight="700" font-size="17" fill="white" text-anchor="start" letter-spacing="0.3">Luis Hernández</text>
+  <defs>
+    <linearGradient id="grad" x1="0" y1="0" x2="38" y2="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#583EBC"/>
+      <stop offset="100%" stop-color="#B8A6FF"/>
+    </linearGradient>
+  </defs>
+</svg>

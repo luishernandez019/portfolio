@@ -2,15 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 32px;
 }
 
 .social-media a {
   display: flex;
   align-items: center;
+  transition: transform var(--transition-base);
+}
+
+.social-media a:hover {
+  transform: translateY(-3px);
 }
 
 .social-media a svg {
   width: auto;
-  height: 35px;
+  height: 33px;
 }

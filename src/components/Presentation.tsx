@@ -1,7 +1,13 @@
+import React from "react";
 import { SocialMedia } from "./SocialMedia";
 import "../styles/Presentation.css";
 
 export const Presentation = () => {
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="presentation-section" id="start">
 
@@ -20,7 +26,7 @@ export const Presentation = () => {
 
         <div className="profile-buttons">
           <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDONEZ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver CV de Luis Hernández en PDF">Ver CV</a>
-          <a href="#contact">Contáctame</a>
+          <a href="#contact" onClick={handleContactClick}>Contáctame</a>
         </div>
       </article>
 

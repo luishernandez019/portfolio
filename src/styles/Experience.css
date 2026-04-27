@@ -1,16 +1,32 @@
 .experience-section {
   margin: 0 45px 75px;
-}
-
-.experience-section h2 {
-  font-family: "Poppins";
-  font-weight: 800;
-  font-size: 25px;
   text-align: center;
 }
 
+.experience-section > h2 {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 25px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 14px;
+}
+
+.experience-section > h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--button-bg-color), var(--header-text-color));
+  border-radius: 2px;
+}
+
 .experience-container {
-  margin-top: 30px;
+  margin-top: 40px;
+  text-align: left;
 }
 
 .timeline {
@@ -24,37 +40,55 @@
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #333;
+  background: linear-gradient(180deg, var(--button-bg-color) 0%, rgba(88, 62, 188, 0.15) 100%);
   left: 0;
-  margin: 0 auto;
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 36px;
 }
 
 .timeline-item:before {
   content: '';
   position: absolute;
-  left: -9px;
-  background: var(--header-text-color);
+  left: -11px;
+  background: var(--main-bg-color);
+  border: 2.5px solid var(--header-text-color);
   border-radius: 50%;
-  height: 20px;
-  width: 20px;
-  top: 20px;
-  margin-top: -10px;
+  height: 22px;
+  width: 22px;
+  top: 18px;
+  margin-top: -11px;
+  box-shadow: 0 0 12px rgba(184, 166, 255, 0.35);
+}
+
+@keyframes pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(184, 166, 255, 0.9); }
+  60%  { box-shadow: 0 0 0 12px rgba(184, 166, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(184, 166, 255, 0); }
+}
+
+.timeline-item:first-child:before {
+  background: var(--header-text-color);
+  border-color: var(--header-text-color);
+  animation: pulse-dot 1.5s ease-out infinite;
 }
 
 .timeline-content {
-  margin-left: 30px;
+  margin-left: 32px;
+  background-color: var(--card-bg-color);
+  border: var(--card-border);
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: var(--card-shadow);
 }
 
 .job-header {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
-  gap: 20px;
+  margin-bottom: 12px;
+  gap: 8px;
 }
 
 .job-header div {
@@ -63,58 +97,69 @@
 
 .job-title {
   font-family: "Poppins";
-  font-weight: 800;
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 20px;
   color: var(--header-text-color);
+  letter-spacing: -0.01em;
 }
 
 .experience-section .job-title {
-  font-size: 24px;
+  font-size: 20px;
   text-align: left;
 }
 
 .job-company {
   font-family: "Poppins";
-  font-weight: 400;
-  font-size: 20px;
-  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .job-date {
   font-family: "Poppins";
   font-weight: 400;
-  font-size: 14px;
-  color: #c3c3c3;
+  font-size: 12px;
+  color: rgba(184, 166, 255, 0.6);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .job-description {
   font-family: "Quicksand";
   font-weight: 500;
-  font-size: 16px;
-  color: white;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
 }
 
 .job-description a {
   color: var(--header-text-color);
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: none;
+  border-bottom: 1px solid rgba(184, 166, 255, 0.3);
+  transition: border-color var(--transition-base);
+}
+
+.job-description a:hover {
+  border-color: var(--header-text-color);
 }
 
 @media (min-width: 550px) {
   .experience-container {
-    margin: 30px 5% 85px;
+    margin: 40px 5% 85px;
   }
 }
 
 @media (min-width: 768px) {
   .experience-container {
-    margin: 30px 5% 85px;
+    margin: 40px 5% 85px;
   }
 
   .job-header {
     flex-direction: row;
     justify-content: space-between;
-    gap: 35px;
+    align-items: flex-start;
+    gap: 24px;
   }
 
   .job-description {
@@ -124,7 +169,11 @@
 
 @media (min-width: 1150px) {
   .experience-container {
-    margin: 30px 15% 100px;
+    margin: 40px 15% 100px;
+  }
+
+  .experience-section > h2 {
+    font-size: 30px;
   }
 
   .job-header {
@@ -138,6 +187,6 @@
 
 @media (min-width: 1300px) {
   .experience-container {
-    margin: 30px 27.5% 100px;
+    margin: 40px 27.5% 100px;
   }
 }
