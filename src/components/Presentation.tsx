@@ -51,7 +51,6 @@ export const Presentation = () => {
           width={982}
           height={1080}
           loading="eager"
-          fetchPriority="high"
           alt="Foto de Luis Hernández"
         />
         <SocialMedia/>

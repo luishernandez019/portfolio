@@ -22,6 +22,10 @@ nav {
   flex-shrink: 0;
 }
 
+nav ul {
+  display: none;
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
