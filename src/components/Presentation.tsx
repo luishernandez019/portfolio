@@ -1,8 +1,13 @@
 import React from "react";
 import { SocialMedia } from "./SocialMedia";
+import { useTypingEffect } from "../hooks/useTypingEffect";
 import "../styles/Presentation.css";
 
+const ROLES = ["Frontend Engineer", "Web Developer", "Software Developer"];
+
 export const Presentation = () => {
+  const { displayed, isTyping } = useTypingEffect(ROLES);
+
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -12,9 +17,17 @@ export const Presentation = () => {
     <section className="presentation-section" id="start">
 
       <article>
+        <div className="availability-badge">
+          <span className="availability-dot" />
+          Abierto a oportunidades
+        </div>
+
         <header className="profile-header">
           <h1>Luis Hernández</h1>
-          <h2>Frontend Engineer</h2>
+          <h2>
+            {displayed}
+            <span className={`typing-cursor${isTyping ? "" : " typing-cursor--blink"}`}>|</span>
+          </h2>
         </header>
 
         <p className="profile-description">

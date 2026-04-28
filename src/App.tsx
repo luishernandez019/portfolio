@@ -5,6 +5,7 @@ import { Services } from "./components/Services";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { StarField } from "./components/StarField";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { useScrollAnimation } from "./hooks/useScrollAnimation";
 import "./index.css";
 
 const Stack = lazy(() => import("./components/Stack").then(m => ({ default: m.Stack })));
@@ -15,6 +16,8 @@ const Contact = lazy(() => import("./components/Contact").then(m => ({ default: 
 const Footer = lazy(() => import("./components/Footer").then(m => ({ default: m.Footer })));
 
 function App() {
+  useScrollAnimation();
+
   return (
     <React.Fragment>
       <StarField/>

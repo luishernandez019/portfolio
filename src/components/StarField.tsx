@@ -4,11 +4,13 @@ import "../styles/StarField.css";
 interface Star {
   x: number;
   y: number;
+  vx: number;
+  vy: number;
   radius: number;
-  opacity: number;
-  speed: number;
   phase: number;
+  twinkleSpeed: number;
   color: string;
+  glow: boolean;
 }
 
 export const StarField = () => {
@@ -22,26 +24,36 @@ export const StarField = () => {
 
     let animationId: number;
     let stars: Star[] = [];
+    let w = 0;
+    let h = 0;
 
-    const colors = ["255,255,255", "184,166,255", "206,193,255", "255,255,255", "255,255,255"];
+    const colors = [
+      "255,255,255",
+      "255,255,255",
+      "255,255,255",
+      "184,166,255",
+      "206,193,255",
+    ];
 
-    const createStars = (w: number, h: number) => {
-      const count = Math.floor((w * h) / 6000);
-      stars = Array.from({ length: count }, () => ({
-        x: Math.random() * w,
-        y: Math.random() * h,
-        radius: Math.random() * 1.6 + 0.2,
-        opacity: Math.random(),
-        speed: Math.random() * 0.008 + 0.003,
-        phase: Math.random() * Math.PI * 2,
-        color: colors[Math.floor(Math.random() * colors.length)],
-      }));
-    };
+    const makeStar = (randomX = true): Star => ({
+      x: randomX ? Math.random() * w : w + 2,
+      y: Math.random() * h,
+      vx: -(Math.random() * 0.25 + 0.05),
+      vy: (Math.random() - 0.5) * 0.08,
+      radius: Math.random() * 1.8 + 0.3,
+      phase: Math.random() * Math.PI * 2,
+      twinkleSpeed: Math.random() * 0.06 + 0.03,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      glow: Math.random() < 0.2,
+    });
 
     const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = document.documentElement.scrollHeight;
-      createStars(canvas.width, canvas.height);
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = w;
+      canvas.height = h;
+      const count = Math.floor((w * h) / 4500);
+      stars = Array.from({ length: count }, () => makeStar(true));
     };
 
     resize();
@@ -49,15 +61,33 @@ export const StarField = () => {
 
     let t = 0;
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, w, h);
       t += 1;
 
-      for (const star of stars) {
-        const opacity = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(t * star.speed + star.phase));
+      for (let i = 0; i < stars.length; i++) {
+        const s = stars[i];
+
+        s.x += s.vx;
+        s.y += s.vy;
+
+        if (s.x < -2) stars[i] = makeStar(false);
+
+        const opacity = 0.15 + 0.85 * (0.5 + 0.5 * Math.sin(t * s.twinkleSpeed + s.phase));
+
+        if (s.glow) {
+          ctx.shadowBlur = 6;
+          ctx.shadowColor = `rgba(${s.color}, ${opacity})`;
+        }
+
         ctx.beginPath();
-        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${star.color}, ${opacity})`;
+        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${s.color}, ${opacity})`;
         ctx.fill();
+
+        if (s.glow) {
+          ctx.shadowBlur = 0;
+          ctx.shadowColor = "transparent";
+        }
       }
 
       animationId = requestAnimationFrame(draw);

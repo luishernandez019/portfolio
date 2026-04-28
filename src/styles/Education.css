@@ -63,7 +63,7 @@
   font-size: 15px;
   font-weight: 400;
   margin: 6px 0;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
 }
 
 .college-info p {

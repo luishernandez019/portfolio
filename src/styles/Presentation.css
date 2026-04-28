@@ -1,3 +1,52 @@
+/* Badge */
+.availability-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-size: 12px;
+  color: #4ade80;
+  margin: 0 auto 18px;
+}
+
+.availability-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  animation: pulse-green 2s ease-out infinite;
+}
+
+@keyframes pulse-green {
+  0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70%  { box-shadow: 0 0 0 7px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* Typing cursor */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--header-text-color);
+  font-weight: 300;
+}
+
+.typing-cursor--blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 .presentation-section {
   margin: 120px 45px 100px;
 }
@@ -28,7 +77,7 @@
   text-align: center;
   margin-bottom: 50px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
 }
 
 .profile-description span {
@@ -138,6 +187,10 @@
 
   .profile-header, .profile-description {
     text-align: left;
+  }
+
+  .availability-badge {
+    margin-left: 0;
   }
 
   .profile-description {

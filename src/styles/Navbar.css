@@ -5,7 +5,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 28px;
-  background-color: rgba(27, 26, 42, 0.85);
+  background-color: var(--nav-glass-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(184, 166, 255, 0.08);
@@ -22,13 +22,35 @@ nav {
   flex-shrink: 0;
 }
 
-
-nav ul {
-  display: none
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.menu-btn {
-  flex-shrink: 0;
+.theme-toggle {
+  background: none;
+  border: 1px solid rgba(184, 166, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-primary);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+}
+
+.theme-toggle:hover {
+  background-color: rgba(184, 166, 255, 0.1);
+  border-color: rgba(184, 166, 255, 0.4);
+}
+
+.theme-toggle svg {
+  width: 100%;
+  height: 100%;
 }
 
 .menu-btn, .close-btn {
@@ -45,7 +67,7 @@ nav ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(27, 26, 42, 0.97);
+  background-color: var(--mobile-menu-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   justify-content: center;
@@ -72,12 +94,13 @@ nav ul {
   font-weight: 700;
   font-size: 22px;
   text-decoration: none;
-  color: white;
+  color: var(--text-primary);
   letter-spacing: 0.02em;
   transition: color var(--transition-base);
 }
 
-.mobile-menu ul li a:hover {
+.mobile-menu ul li a:hover,
+.mobile-menu ul li a.active {
   color: var(--header-text-color);
 }
 
@@ -108,7 +131,7 @@ nav ul {
 
   nav ul li a {
     text-decoration: none;
-    color: white;
+    color: var(--text-primary);
     letter-spacing: 0.04em;
     text-transform: uppercase;
     font-size: 11px;
@@ -129,16 +152,23 @@ nav ul {
     border-radius: 1px;
   }
 
-  nav ul li a:hover {
+  nav ul li a:hover,
+  nav ul li a.active {
     color: var(--header-text-color);
   }
 
+  nav ul li a.active::after,
   nav ul li a:hover::after {
     width: 100%;
   }
 
   .menu-btn {
     display: none;
+  }
+
+  .nav-actions {
+    position: absolute;
+    right: 5%;
   }
 }
 

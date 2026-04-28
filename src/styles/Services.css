@@ -68,7 +68,7 @@
   font-weight: 700;
   font-size: 20px;
   margin: 20px 0 12px;
-  color: white;
+  color: var(--text-primary);
 }
 
 .service-card p {

@@ -10,6 +10,44 @@
   --card-shadow: 0 4px 24px rgba(88, 62, 188, 0.12);
   --card-shadow-hover: 0 16px 48px rgba(88, 62, 188, 0.28);
   --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Text tokens */
+  --text-primary: white;
+  --text-secondary: rgba(255, 255, 255, 0.85);
+  --text-muted: rgba(255, 255, 255, 0.6);
+
+  /* Navbar glass */
+  --nav-glass-bg: rgba(27, 26, 42, 0.85);
+  --mobile-menu-bg: rgba(27, 26, 42, 0.97);
+
+  /* Form inputs */
+  --input-bg: rgba(24, 23, 32, 0.8);
+  --input-border: rgba(56, 54, 80, 0.8);
+  --input-placeholder: #6a6888;
+}
+
+[data-theme="light"] {
+  --main-bg-color: #EDEAFF;
+  --nav-bg-color: #E0DBFF;
+  --header-text-color: #4B33A8;
+  --description-text-color: #5E47C2;
+  --button-bg-color: #583EBC;
+
+  --card-bg-color: #FFFFFF;
+  --card-border: 1px solid rgba(88, 62, 188, 0.14);
+  --card-shadow: 0 4px 24px rgba(88, 62, 188, 0.08);
+  --card-shadow-hover: 0 16px 48px rgba(88, 62, 188, 0.2);
+
+  --text-primary: #1a1829;
+  --text-secondary: rgba(26, 24, 41, 0.8);
+  --text-muted: rgba(26, 24, 41, 0.55);
+
+  --nav-glass-bg: rgba(224, 219, 255, 0.88);
+  --mobile-menu-bg: rgba(224, 219, 255, 0.98);
+
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --input-border: rgba(88, 62, 188, 0.25);
+  --input-placeholder: rgba(88, 62, 188, 0.45);
 }
 
 * {
@@ -68,14 +106,51 @@ section[id] {
 
 html {
   background-color: var(--main-bg-color);
-  color: white;
+  color: var(--text-primary);
   font-family: "Poppins";
   font-weight: 400;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light mode: hide starfield, invert white SVG icons */
+[data-theme="light"] .starfield { display: none; }
+
+[data-theme="light"] .social-media a svg,
+[data-theme="light"] .projects-buttons a:not(.demo-button) svg,
+[data-theme="light"] .menu-btn svg,
+[data-theme="light"] .close-btn svg {
+  filter: invert(1) brightness(0.15);
 }
 
 main, footer, nav {
   position: relative;
   z-index: 1;
+}
+
+/* Scroll animations */
+.service-card,
+.stack-card,
+.project-card,
+.timeline-item,
+.education-container,
+.contact-card {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.55s ease var(--stagger, 0s),
+    transform 0.55s ease var(--stagger, 0s),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card.is-visible,
+.stack-card.is-visible,
+.project-card.is-visible,
+.timeline-item.is-visible,
+.education-container.is-visible,
+.contact-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @font-face {

@@ -3,11 +3,14 @@ import DulceTentacion from "../assets/projects/dulce-tentacion.webp";
 import DataDex from "../assets/projects/datadex.webp";
 import BeatBond from "../assets/projects/beatbond.webp";
 
+export type ProjectCategory = "Frontend" | "Diseño";
+
 interface Project {
   id: number;
   title: string;
   image: string;
   alt: string;
+  category: ProjectCategory;
   demo?: string;
   github?: string;
   behance?: string;
@@ -19,6 +22,7 @@ export const PROJECTS: Project[] = [
     title: "BeatBond",
     image: BeatBond,
     alt: "Imagen de proyecto de BeatBond",
+    category: "Frontend",
     demo: "https://beatbond.vercel.app",
     github: "https://github.com/luishernandez019/BeatBond",
   },
@@ -27,6 +31,7 @@ export const PROJECTS: Project[] = [
     title: "DataDex",
     image: DataDex,
     alt: "Imagen de proyecto de DataDex",
+    category: "Frontend",
     demo: "https://datadex-api.vercel.app",
     github: "https://github.com/luishernandez019/datadex",
   },
@@ -35,6 +40,7 @@ export const PROJECTS: Project[] = [
     title: "Florería Valentina",
     image: FloreriaValentina,
     alt: "Imagen de proyecto de Florería Valentina",
+    category: "Diseño",
     demo: "https://floreria-valentina-mx.vercel.app",
     github: "https://github.com/luishernandez019/floreria-valentina",
   },
@@ -43,6 +49,7 @@ export const PROJECTS: Project[] = [
     title: "Dulce Tentación",
     image: DulceTentacion,
     alt: "Imagen de proyecto de Dulce Tentación",
+    category: "Diseño",
     demo: "https://dulce-tentacion-mx.vercel.app",
     github: "https://github.com/luishernandez019/dulce-tentacion",
   }
