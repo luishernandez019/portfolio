@@ -1,7 +1,24 @@
 import React from "react";
 import { SocialMedia } from "./SocialMedia";
 import { useTypingEffect } from "../hooks/useTypingEffect";
+import { useCountUp } from "../hooks/useCountUp";
 import "../styles/Presentation.css";
+
+const STATS = [
+  { value: 3, suffix: "+", label: "Años de experiencia" },
+  { value: 10, suffix: "+", label: "Proyectos completados" },
+  { value: 12, suffix: "+", label: "Tecnologías" },
+];
+
+const StatItem = ({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
+  const { count, ref } = useCountUp(value);
+  return (
+    <div className="stat-item" ref={ref}>
+      <span className="stat-number">{count}{suffix}</span>
+      <span className="stat-label">{label}</span>
+    </div>
+  );
+};
 
 const ROLES = ["Frontend Engineer", "Web Developer", "Software Developer"];
 
@@ -40,6 +57,12 @@ export const Presentation = () => {
         <div className="profile-buttons">
           <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDONEZ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver CV de Luis Hernández en PDF">Ver CV</a>
           <a href="#contact" onClick={handleContactClick}>Contáctame</a>
+        </div>
+
+        <div className="profile-stats">
+          {STATS.map(s => (
+            <StatItem key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
+          ))}
         </div>
       </article>
 

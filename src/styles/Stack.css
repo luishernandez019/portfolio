@@ -33,6 +33,7 @@
 }
 
 .stack-card {
+  position: relative;
   background-color: var(--card-bg-color);
   border: var(--card-border);
   border-radius: 20px;
@@ -45,6 +46,47 @@
   padding: 30px 24px 26px;
   transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
   box-shadow: var(--card-shadow);
+}
+
+.stack-card[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(27, 26, 42, 0.96);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(184, 166, 255, 0.2);
+  color: var(--text-primary);
+  font-family: "Poppins";
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 5px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.stack-card[data-tooltip]::after {
+  content: '';
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  border: 5px solid transparent;
+  border-top-color: rgba(27, 26, 42, 0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.stack-card[data-tooltip]:hover::before,
+.stack-card[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 .stack-card:hover {

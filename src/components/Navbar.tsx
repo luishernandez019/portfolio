@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 import { SocialMedia } from "./SocialMedia";
 import Menu from "../assets/icons/menu.svg";
 import Close from "../assets/icons/close.svg";
@@ -24,9 +24,19 @@ const MoonIcon = () => (
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const { theme, toggleTheme } = useTheme();
   const activeSection = useActiveSection();
+
+  useEffect(() => {
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleToggleMenu = () => setMenuOpen(o => !o);
 
@@ -59,6 +69,7 @@ export const Navbar = () => {
   return (
     <>
       <nav>
+        <div className="scroll-progress" style={{ width: `${progress}%` }} />
         <Logo className="nav-logo" aria-hidden="true" />
         <ul>
           {navLinks.map(({ label, id }) => (

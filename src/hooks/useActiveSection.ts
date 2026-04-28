@@ -7,14 +7,22 @@ export const useActiveSection = () => {
 
   useEffect(() => {
     const observed = new Set<string>();
+    const intersecting = new Set<string>();
+
+    const update = () => {
+      const current = SECTION_IDS.find(id => intersecting.has(id));
+      if (current) setActive(current);
+    };
 
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) setActive(entry.target.id);
+          if (entry.isIntersecting) intersecting.add(entry.target.id);
+          else intersecting.delete(entry.target.id);
         });
+        update();
       },
-      { threshold: 0.35, rootMargin: "-70px 0px -45% 0px" }
+      { threshold: 0, rootMargin: "-70px 0px -50% 0px" }
     );
 
     const tryObserve = () => {

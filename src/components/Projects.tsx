@@ -75,6 +75,12 @@ export const Projects = () => {
                     loading="lazy"
                   />
                 </div>
+                <p className="project-description">{project.description}</p>
+                <div className="project-tags">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="project-tag">{tag}</span>
+                  ))}
+                </div>
                 <div className="projects-buttons">
                   {project.demo && (
                     <a className="demo-button" href={project.demo} target="_blank" rel="noopener noreferrer">

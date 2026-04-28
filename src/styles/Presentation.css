@@ -127,6 +127,36 @@
   transform: translateY(-2px);
 }
 
+.profile-stats {
+  display: flex;
+  gap: 28px;
+  margin-top: 36px;
+  justify-content: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.stat-number {
+  font-family: "Poppins";
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--header-text-color);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: "Poppins";
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+}
+
 .profile-aside {
   display: flex;
   flex-direction: column;
@@ -212,6 +242,11 @@
     font-size: 15px;
   }
 
+  .profile-stats {
+    justify-content: flex-start;
+    gap: 32px;
+  }
+
   .profile-aside {
     display: flex;
     flex-direction: column;
@@ -249,6 +284,14 @@
   .profile-buttons a {
     font-size: 20px;
     padding: 13px 32px;
+  }
+
+  .stat-number {
+    font-size: 34px;
+  }
+
+  .stat-label {
+    font-size: 12px;
   }
 }
 

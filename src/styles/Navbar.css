@@ -16,6 +16,16 @@ nav {
   transition: background-color var(--transition-base);
 }
 
+.scroll-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--button-bg-color), var(--header-text-color));
+  pointer-events: none;
+  transition: width 0.1s linear;
+}
+
 .nav-logo {
   height: 34px;
   width: auto;
