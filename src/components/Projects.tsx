@@ -4,7 +4,7 @@ import Behance from "../assets/icons/social_media/behance.svg";
 import { PROJECTS, ProjectCategory } from "../const/Projects";
 import "../styles/Projects.css";
 
-const FILTERS = ["Todos", "Frontend", "Diseño"] as const;
+const FILTERS = ["Todos", "Frontend"] as const;
 type Filter = typeof FILTERS[number];
 
 export const Projects = () => {
@@ -69,6 +69,8 @@ export const Projects = () => {
                 <div className="project-image-wrapper">
                   <img
                     src={project.image}
+                    srcSet={project.srcset}
+                    sizes="(min-width: 768px) 330px, (min-width: 500px) 40vw, 85vw"
                     width={305}
                     height={200}
                     alt={project.alt}

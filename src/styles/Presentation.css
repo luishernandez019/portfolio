@@ -48,7 +48,12 @@
 }
 
 .presentation-section {
-  margin: 120px 45px 100px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 45px 60px;
+  box-sizing: border-box;
 }
 
 .profile-header {
@@ -161,7 +166,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0 100px;
+  margin: 40px 0 0;
 }
 
 @keyframes float {
@@ -180,8 +185,8 @@
 
 @media (min-width: 500px) {
   .presentation-section {
-    margin-left: 15%;
-    margin-right: 15%;
+    padding-left: 15%;
+    padding-right: 15%;
   }
 }
 
@@ -198,8 +203,8 @@
 
 @media (min-width: 768px) {
   .presentation-section {
-    display: flex;
-    margin: 115px 10% 85px;
+    flex-direction: row;
+    padding: 80px 10% 60px;
     align-items: center;
     gap: 5%;
   }
@@ -265,7 +270,7 @@
 
 @media (min-width: 1150px) {
   .presentation-section {
-    margin: 125px 12.5% 125px;
+    padding: 80px 12.5% 60px;
   }
 
   .profile-header {
@@ -297,6 +302,7 @@
 
 @media (min-width: 1300px) {
   .presentation-section {
-    margin: 125px 17.5% 125px;
+    padding-left: 17.5%;
+    padding-right: 17.5%;
   }
 }
