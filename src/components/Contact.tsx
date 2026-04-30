@@ -22,10 +22,12 @@ export const Contact = () => {
         body: JSON.stringify({ name, email, message }),
       });
 
-      const data = await response.json();
+      const text = await response.text();
+      let data: { error?: string } = {};
+      try { data = JSON.parse(text); } catch { /* respuesta no-JSON del servidor */ }
 
       if (!response.ok) {
-        throw new Error(data.error ?? "Error al enviar el mensaje");
+        throw new Error(data.error ?? "Error al enviar el mensaje. Intenta de nuevo.");
       }
 
       setStatus("success");
