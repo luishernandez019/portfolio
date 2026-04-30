@@ -2,16 +2,22 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Github from "../assets/icons/social_media/github.svg";
 import Behance from "../assets/icons/social_media/behance.svg";
 import { PROJECTS, ProjectCategory } from "../const/Projects";
+import { useLanguage } from "../hooks/useLanguage";
 import "../styles/Projects.css";
 
-const FILTERS = ["Todos", "Frontend"] as const;
-type Filter = typeof FILTERS[number];
+type FilterValue = "all" | ProjectCategory;
 
 export const Projects = () => {
-  const [active, setActive] = useState<Filter>("Todos");
+  const { lang, t } = useLanguage();
+  const [active, setActive] = useState<FilterValue>("all");
   const containerRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const [slider, setSlider] = useState<{ x: number; width: number } | null>(null);
+
+  const filters: { value: FilterValue; label: string }[] = [
+    { value: "all",      label: t.projects.filterAll      },
+    { value: "Frontend", label: t.projects.filterFrontend },
+  ];
 
   const moveSlider = useCallback((index: number) => {
     const btn = btnRefs.current[index];
@@ -26,9 +32,9 @@ export const Projects = () => {
     moveSlider(0);
   }, [moveSlider]);
 
-  const filtered = active === "Todos"
+  const filtered = active === "all"
     ? PROJECTS
-    : PROJECTS.filter(p => p.category === (active as ProjectCategory));
+    : PROJECTS.filter(p => p.category === active);
 
   const rows = Array.from(
     { length: Math.ceil(filtered.length / 2) },
@@ -37,7 +43,7 @@ export const Projects = () => {
 
   return (
     <section className="projects-section" id="projects">
-      <h2>Proyectos</h2>
+      <h2>{t.projects.heading}</h2>
 
       <div className="project-filters" ref={containerRef}>
         <span
@@ -48,14 +54,14 @@ export const Projects = () => {
               : { opacity: 0 }
           }
         />
-        {FILTERS.map((f, i) => (
+        {filters.map(({ value, label }, i) => (
           <button
-            key={f}
+            key={value}
             ref={el => { btnRefs.current[i] = el; }}
-            className={`filter-btn${active === f ? " filter-btn--active" : ""}`}
-            onClick={() => { setActive(f); moveSlider(i); }}
+            className={`filter-btn${active === value ? " filter-btn--active" : ""}`}
+            onClick={() => { setActive(value); moveSlider(i); }}
           >
-            {f}
+            {label}
           </button>
         ))}
       </div>
@@ -63,45 +69,59 @@ export const Projects = () => {
       <div className="projects-container" key={active}>
         {rows.map((row, i) => (
           <div className="projects-row" key={i}>
-            {row.map(project => (
-              <article className="project-card" key={project.id}>
-                <h2>{project.title}</h2>
-                <div className="project-image-wrapper">
-                  <img
-                    src={project.image}
-                    srcSet={project.srcset}
-                    sizes="(min-width: 768px) 330px, (min-width: 500px) 40vw, 85vw"
-                    width={305}
-                    height={200}
-                    alt={project.alt}
-                    loading="lazy"
-                  />
-                </div>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map(tag => (
-                    <span key={tag} className="project-tag">{tag}</span>
-                  ))}
-                </div>
-                <div className="projects-buttons">
-                  {project.demo && (
-                    <a className="demo-button" href={project.demo} target="_blank" rel="noopener noreferrer">
-                      Demo
-                    </a>
-                  )}
-                  {project.github && (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`Ver código de ${project.title} en GitHub`}>
-                      <Github />
-                    </a>
-                  )}
-                  {project.behance && (
-                    <a href={project.behance} target="_blank" rel="noopener noreferrer" aria-label={`Ver ${project.title} en Behance`}>
-                      <Behance />
-                    </a>
-                  )}
-                </div>
-              </article>
-            ))}
+            {row.map(project => {
+              const description = lang === "en" ? project.descriptionEn : project.description;
+              const alt = lang === "en" ? project.altEn : project.alt;
+              return (
+                <article className="project-card" key={project.id}>
+                  <h2>{project.title}</h2>
+                  <div className="project-image-wrapper">
+                    <img
+                      src={project.image}
+                      srcSet={project.srcset}
+                      sizes="(min-width: 768px) 330px, (min-width: 500px) 40vw, 85vw"
+                      width={305}
+                      height={200}
+                      alt={alt}
+                      loading="lazy"
+                    />
+                  </div>
+                  <p className="project-description">{description}</p>
+                  <div className="project-tags">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="project-tag">{tag}</span>
+                    ))}
+                  </div>
+                  <div className="projects-buttons">
+                    {project.demo && (
+                      <a className="demo-button" href={project.demo} target="_blank" rel="noopener noreferrer">
+                        Demo
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={t.projects.githubAriaLabel.replace("{title}", project.title)}
+                      >
+                        <Github />
+                      </a>
+                    )}
+                    {project.behance && (
+                      <a
+                        href={project.behance}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={t.projects.behanceAriaLabel.replace("{title}", project.title)}
+                      >
+                        <Behance />
+                      </a>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
           </div>
         ))}
       </div>

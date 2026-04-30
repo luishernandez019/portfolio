@@ -10,70 +10,74 @@ import Tailwind from "../assets/icons/stack/tailwind.svg";
 import Bootstrap from "../assets/icons/stack/bootstrap.svg";
 import Python from "../assets/icons/stack/python.svg";
 import Git from "../assets/icons/stack/git.svg";
+import { useLanguage } from "../hooks/useLanguage";
 import "../styles/Stack.css";
 
 export const Stack = () => {
+  const { t } = useLanguage();
+  const tt = t.stack.tooltips;
+
   return (
     <section className="stack-section" id="stack">
-      <h2>Mi stack de desarrollo</h2>
+      <h2>{t.stack.heading}</h2>
 
       <div className="stack-container">
-        <div className="stack-card" data-tooltip="Maquetado y estilos">
+        <div className="stack-card" data-tooltip={tt.htmlCssSass}>
           <HtmlCssSass/>
           <h2>HTML, CSS y SASS</h2>
         </div>
 
-        <div className="stack-card" data-tooltip="Lenguajes principales">
+        <div className="stack-card" data-tooltip={tt.jsTs}>
           <JavascriptTypescript/>
           <h2>Javascript y Typescript</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Framework UI">
+        <div className="stack-card square" data-tooltip={tt.react}>
           <React/>
           <h2>React.js</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Framework Full-Stack">
+        <div className="stack-card square" data-tooltip={tt.next}>
           <Next/>
           <h2>Next.js</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Runtime Backend">
+        <div className="stack-card square" data-tooltip={tt.node}>
           <Node/>
           <h2>Node.js</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Base de datos relacional">
+        <div className="stack-card square" data-tooltip={tt.mysql}>
           <MySQL/>
           <h2>MySQL</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Base de datos NoSQL">
+        <div className="stack-card square" data-tooltip={tt.mongodb}>
           <MongoDB/>
           <h2>MongoDB</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Base de datos relacional">
+        <div className="stack-card square" data-tooltip={tt.postgresql}>
           <PostgreSQL/>
           <h2>PostgreSQL</h2>
         </div>
 
-        <div className="stack-card" data-tooltip="Framework CSS">
+        <div className="stack-card" data-tooltip={tt.tailwind}>
           <Tailwind/>
           <h2>Tailwind</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Framework CSS">
+        <div className="stack-card square" data-tooltip={tt.bootstrap}>
           <Bootstrap/>
           <h2>Bootstrap</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Lenguaje backend / scripting">
+        <div className="stack-card square" data-tooltip={tt.python}>
           <Python/>
           <h2>Python</h2>
         </div>
 
-        <div className="stack-card square" data-tooltip="Control de versiones">
+        <div className="stack-card square" data-tooltip={tt.git}>
           <Git/>
           <h2>Git</h2>
         </div>

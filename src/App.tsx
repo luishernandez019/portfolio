@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Navbar } from "./components/Navbar";
 import { Presentation } from "./components/Presentation";
 import { Services } from "./components/Services";
@@ -6,6 +6,7 @@ import { ScrollToTop } from "./components/ScrollToTop";
 import { StarField } from "./components/StarField";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { useScrollAnimation } from "./hooks/useScrollAnimation";
+import { LanguageProvider } from "./hooks/useLanguage";
 import "./index.css";
 
 const Stack = lazy(() => import("./components/Stack").then(m => ({ default: m.Stack })));
@@ -19,7 +20,7 @@ function App() {
   useScrollAnimation();
 
   return (
-    <React.Fragment>
+    <LanguageProvider>
       <StarField/>
       <Navbar/>
       <main id="main">
@@ -41,7 +42,7 @@ function App() {
         </Suspense>
       </ErrorBoundary>
       <ScrollToTop/>
-    </React.Fragment>
+    </LanguageProvider>
   );
 }
 

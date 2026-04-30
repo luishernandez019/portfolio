@@ -62,7 +62,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     return res.status(200).json({ success: true });
-  } catch {
-    return res.status(500).json({ error: "Error al enviar el mensaje. Intenta de nuevo más tarde." });
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    return res.status(500).json({ error: message });
   }
 }

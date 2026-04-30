@@ -42,6 +42,30 @@ nav ul {
   gap: 12px;
 }
 
+.lang-toggle {
+  background: none;
+  border: 1px solid rgba(184, 166, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-primary);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  font-family: "Poppins", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
+
+.lang-toggle:hover {
+  background-color: rgba(184, 166, 255, 0.1);
+  border-color: rgba(184, 166, 255, 0.4);
+  color: var(--header-text-color);
+}
+
 .theme-toggle {
   background: none;
   border: 1px solid rgba(184, 166, 255, 0.2);

@@ -5,6 +5,7 @@ import Close from "../assets/icons/close.svg";
 import LogoSVG from "../assets/icons/logo.svg";
 import { useTheme } from "../hooks/useTheme";
 import { useActiveSection } from "../hooks/useActiveSection";
+import { useLanguage } from "../hooks/useLanguage";
 import "../styles/Navbar.css";
 
 const Logo = LogoSVG as unknown as React.FC<React.SVGProps<SVGSVGElement>>;
@@ -28,6 +29,7 @@ export const Navbar = () => {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const { theme, toggleTheme } = useTheme();
   const activeSection = useActiveSection();
+  const { lang, toggleLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => {
@@ -60,10 +62,10 @@ export const Navbar = () => {
   }, [menuOpen]);
 
   const navLinks = [
-    { label: "Stack",      id: "stack"      },
-    { label: "Experiencia",id: "experience" },
-    { label: "Proyectos",  id: "projects"   },
-    { label: "Contacto",   id: "contact"    },
+    { label: t.nav.stack,      id: "stack"      },
+    { label: t.nav.experience, id: "experience" },
+    { label: t.nav.projects,   id: "projects"   },
+    { label: t.nav.contact,    id: "contact"    },
   ];
 
   return (
@@ -86,15 +88,23 @@ export const Navbar = () => {
         </ul>
         <div className="nav-actions">
           <button
+            className="lang-toggle"
+            onClick={toggleLang}
+            aria-label={t.nav.langToggle}
+            title={t.nav.langToggle}
+          >
+            {lang === "es" ? "EN" : "ES"}
+          </button>
+          <button
             className="theme-toggle"
             onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+            aria-label={theme === "dark" ? t.nav.themeToggleDark : t.nav.themeToggleLight}
           >
             {theme === "dark" ? <SunIcon /> : <MoonIcon />}
           </button>
           <button
             className="menu-btn"
-            aria-label="Abrir menú"
+            aria-label={t.nav.menuOpen}
             aria-expanded={menuOpen}
             onClick={handleToggleMenu}
           >
@@ -104,8 +114,8 @@ export const Navbar = () => {
       </nav>
 
       {menuOpen && (
-        <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
-          <button ref={closeButtonRef} className="close-btn" aria-label="Cerrar menú" onClick={handleToggleMenu}>
+        <div className="mobile-menu" role="dialog" aria-modal="true" aria-label={t.nav.menuAriaLabel}>
+          <button ref={closeButtonRef} className="close-btn" aria-label={t.nav.menuClose} onClick={handleToggleMenu}>
             <Close />
           </button>
           <ul>

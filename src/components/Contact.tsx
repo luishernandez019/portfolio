@@ -1,9 +1,13 @@
 import { useState } from "react";
+import { useLanguage } from "../hooks/useLanguage";
 import "../styles/Contact.css";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 export const Contact = () => {
+  const { t } = useLanguage();
+  const tc = t.contact;
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -24,10 +28,10 @@ export const Contact = () => {
 
       const text = await response.text();
       let data: { error?: string } = {};
-      try { data = JSON.parse(text); } catch { /* respuesta no-JSON del servidor */ }
+      try { data = JSON.parse(text); } catch { /* non-JSON server response */ }
 
       if (!response.ok) {
-        throw new Error(data.error ?? "Error al enviar el mensaje. Intenta de nuevo.");
+        throw new Error(data.error ?? tc.defaultError);
       }
 
       setStatus("success");
@@ -36,35 +40,33 @@ export const Contact = () => {
       setMessage("");
     } catch (err) {
       setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Error inesperado");
+      setErrorMessage(err instanceof Error ? err.message : tc.defaultError);
     }
   };
 
   return (
     <section id="contact" className="contact-section">
-      <h2>Contacto</h2>
-      <p className="contact-subtitle">
-        Estoy disponible para proyectos freelance, colaboraciones o simplemente para charlar. ¡Escríbeme!
-      </p>
+      <h2>{tc.heading}</h2>
+      <p className="contact-subtitle">{tc.subtitle}</p>
 
       <div className="contact-card">
         {status === "success" ? (
           <div className="contact-success">
             <span className="contact-success-icon">✓</span>
-            <h2>¡Mensaje enviado!</h2>
-            <p>Gracias por escribirme, te responderé lo antes posible.</p>
+            <h2>{tc.successTitle}</h2>
+            <p>{tc.successText}</p>
             <button className="contact-btn" onClick={() => setStatus("idle")}>
-              Enviar otro mensaje
+              {tc.sendAnother}
             </button>
           </div>
         ) : (
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
             <div className="form-group">
-              <label htmlFor="contact-name">Nombre</label>
+              <label htmlFor="contact-name">{tc.nameLabel}</label>
               <input
                 id="contact-name"
                 type="text"
-                placeholder="Tu nombre"
+                placeholder={tc.namePlaceholder}
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -74,11 +76,11 @@ export const Contact = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="contact-email">Correo electrónico</label>
+              <label htmlFor="contact-email">{tc.emailLabel}</label>
               <input
                 id="contact-email"
                 type="email"
-                placeholder="tu@correo.com"
+                placeholder={tc.emailPlaceholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -88,10 +90,10 @@ export const Contact = () => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="contact-message">Mensaje</label>
+              <label htmlFor="contact-message">{tc.messageLabel}</label>
               <textarea
                 id="contact-message"
-                placeholder="Cuéntame en qué puedo ayudarte..."
+                placeholder={tc.messagePlaceholder}
                 rows={5}
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -110,7 +112,7 @@ export const Contact = () => {
               className="contact-btn"
               disabled={status === "loading" || !name || !email || !message}
             >
-              {status === "loading" ? "Enviando..." : "Enviar mensaje"}
+              {status === "loading" ? tc.sendingButton : tc.submitButton}
             </button>
           </form>
         )}

@@ -2,13 +2,10 @@ import React from "react";
 import { SocialMedia } from "./SocialMedia";
 import { useTypingEffect } from "../hooks/useTypingEffect";
 import { useCountUp } from "../hooks/useCountUp";
+import { useLanguage } from "../hooks/useLanguage";
 import "../styles/Presentation.css";
 
-const STATS = [
-  { value: 3, suffix: "+", label: "Años de experiencia" },
-  { value: 10, suffix: "+", label: "Proyectos completados" },
-  { value: 12, suffix: "+", label: "Tecnologías" },
-];
+const ROLES = ["Frontend Engineer", "Web Developer", "Software Developer"];
 
 const StatItem = ({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
   const { count, ref } = useCountUp(value);
@@ -20,9 +17,8 @@ const StatItem = ({ value, suffix, label }: { value: number; suffix: string; lab
   );
 };
 
-const ROLES = ["Frontend Engineer", "Web Developer", "Software Developer"];
-
 export const Presentation = () => {
+  const { t } = useLanguage();
   const { displayed, isTyping } = useTypingEffect(ROLES);
 
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -36,7 +32,7 @@ export const Presentation = () => {
       <article>
         <div className="availability-badge">
           <span className="availability-dot" />
-          Abierto a oportunidades
+          {t.presentation.availability}
         </div>
 
         <header className="profile-header">
@@ -48,19 +44,21 @@ export const Presentation = () => {
         </header>
 
         <p className="profile-description">
-          +3 años de experiencia.
-          <span> Ingeniero en Desarrollo de Software </span>
-          de Chiapas, México. Especializado en el desarrollo de aplicaciones web atractivas y funcionales.
-          <span> Let's code!</span>
+          {t.presentation.descriptionPart1}
+          <span>{t.presentation.descriptionHighlight}</span>
+          {t.presentation.descriptionPart2}
+          <span>{t.presentation.descriptionCta}</span>
         </p>
 
         <div className="profile-buttons">
-          <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDONEZ.pdf" target="_blank" rel="noopener noreferrer" aria-label="Ver CV de Luis Hernández en PDF">Ver CV</a>
-          <a href="#contact" onClick={handleContactClick}>Contáctame</a>
+          <a href="/CV_LUIS_ANGEL_HERNANDEZ_ORDONEZ.pdf" target="_blank" rel="noopener noreferrer" aria-label={t.presentation.cvAriaLabel}>
+            {t.presentation.cvButton}
+          </a>
+          <a href="#contact" onClick={handleContactClick}>{t.presentation.contactButton}</a>
         </div>
 
         <div className="profile-stats">
-          {STATS.map(s => (
+          {t.presentation.stats.map(s => (
             <StatItem key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
           ))}
         </div>
@@ -74,7 +72,7 @@ export const Presentation = () => {
           width={982}
           height={1080}
           loading="eager"
-          alt="Foto de Luis Hernández"
+          alt={t.presentation.imgAlt}
         />
         <SocialMedia/>
       </aside>
