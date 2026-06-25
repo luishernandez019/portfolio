@@ -64,7 +64,7 @@ export const PROJECTS: Project[] = [
     alt: "Imagen de proyecto de Florería Valentina",
     altEn: "Florería Valentina project image",
     category: "Frontend",
-    tags: ["Next.js", "Tailwind", "TypeScript"],
+    tags: ["React.js", "Tailwind", "TypeScript"],
     demo: "https://floreria-valentina-mx.vercel.app",
     github: "https://github.com/luishernandez019/floreria-valentina",
   },
